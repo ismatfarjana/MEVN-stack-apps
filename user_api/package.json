@@ -1,0 +1,20 @@
+{
+  "name": "user_api",
+  "version": "1.0.0",
+  "description": "sample REST user_api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon ./index.js localhost 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Syeda Ismat Farjana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
