@@ -41,6 +41,12 @@ app.post('/user', (req, res) => {
   res.json(users);
 });
 
+// Handle undefined route
+app.get('*', (req, res) => {
+  logger.info("this is an undefined route");
+  res.send("App works in undefined route!!")
+})
+
 // listen
 app.listen(port, (err) => {
   console.log("App is running on 3000!");
