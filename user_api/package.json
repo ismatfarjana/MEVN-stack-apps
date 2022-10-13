@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon ./index.js localhost 3000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint ./",
+    "eslint-fix": "eslint ./ --fix"
   },
   "author": "Syeda Ismat Farjana",
   "license": "ISC",
@@ -15,6 +17,10 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.6.0",
     "nodemon": "^2.0.20"
   }
 }

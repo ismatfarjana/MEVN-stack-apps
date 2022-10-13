@@ -1,6 +1,6 @@
 // import dependencies
 const express = require('express');
-const logger = require('../logger/logger')
+const logger = require('../logger/logger');
 
 const app = express();
 
@@ -8,34 +8,32 @@ const app = express();
 const users = [{
   firstName: 'ismat',
   lastName: 'farjana',
-  userName: 'dipty'
+  userName: 'dipty',
 },
 {
   firstName: 'ishrat',
   lastName: 'farjana',
-  userName: 'supty'
-}]
+  userName: 'supty',
+}];
 
 // GET all users
 app.get('/users', (req, res) => {
-  logger.info("All users route");
+  logger.info('All users route');
   res.json(users);
-})
-
+});
 
 // Get all users by user name
 app.get('/users/:userName', (req, res) => {
-  const { userName } = req.params
-  logger.info("filter users by users name:::::" + userName);
-  const user = users.filter((user) => {
-    if (userName === user.userName) {
-      return user
-    };
+  const { userName } = req.params;
+  const user = users.filter((anUser) => {
+    if (userName === anUser.userName) {
+      return anUser;
+    }
   });
-  res.json(user)
+  logger.info(`filter users by users name:::::${userName}`);
+  console.log('user', user);
+  res.json(user);
 });
-
-
 
 // Post a user
 app.post('/user', (req, res) => {
