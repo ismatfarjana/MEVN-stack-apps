@@ -2,9 +2,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('./logger/logger');
+const dotenv = require('dotenv');
 
 const app = express();
-const port = 3000;
+
+const environment = process.env.ENVIRONMENT;
+let envPath = './environments/.env-dev';
+
+if (environment === 'test') {
+  envPath = './environments/.env-test';
+} else if (environment === 'production') {
+  envPath = './environments/.env-prod';
+}
+dotenv.config({ path: envPath });
+
+const port = process.env.PORT;
+console.log(port)
 
 app.use(bodyParser.json());
 
@@ -23,13 +36,7 @@ app.get('*', (req, res) => {
 
 // listen
 app.listen(port, (err) => {
-  if (err) console.log(err);
-  console.log('App is running on 3000!');
+  if (err) logger.error('Error::', err);
+  logger.info(`running server from the port: ${port}`);
 });
 
-// routes
-app.get('/', (req, res) => {
-  res.send('App is running on port 3000!');
-});
-
-logger.info(`running server from the port:::::${port}`);
