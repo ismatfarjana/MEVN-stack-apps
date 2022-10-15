@@ -1,3 +1,4 @@
+// CRUD operations
 const { connect } = require('../config/db.config');
 const { Task } = require('../model/task.model');
 const logger = require('../logger/logger');
