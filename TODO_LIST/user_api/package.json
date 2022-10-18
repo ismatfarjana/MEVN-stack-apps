@@ -2,10 +2,10 @@
   "name": "user_api",
   "version": "1.0.0",
   "description": "sample REST user_api",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "ENVIRONMENT=$ENVIRONMENT node index.js",
-    "dev": "nodemon ./index.js localhost 3000",
+    "start": "ENVIRONMENT=$ENVIRONMENT node server.js",
+    "dev": "nodemon ./server.js localhost 3000",
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint ./",
     "eslint-fix": "eslint ./ --fix",

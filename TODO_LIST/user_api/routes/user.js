@@ -1,6 +1,6 @@
 // import dependencies
 const express = require('express');
-const logger = require('../logger/logger');
+const logger = require('../logger/api.logger');
 
 const app = express();
 

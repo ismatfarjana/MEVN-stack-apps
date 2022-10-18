@@ -1,7 +1,7 @@
 // import dependencies
 const express = require('express');
 const bodyParser = require('body-parser');
-const logger = require('./logger/logger');
+const logger = require('./logger/api.logger');
 const dotenv = require('dotenv');
 
 const app = express();

@@ -16,15 +16,14 @@
 // Below part is from medium tutorial: https://medium.com/bb-tutorials-and-thoughts/how-to-build-nodejs-rest-api-with-express-and-mongodb-fa6e1610ee1b
 const mongoose = require('mongoose');
 const logger = require('../logger/api.logger');
+const uri = process.env.DB_CONNECTION_STRING;
 
 const connect = () => {
-  const uri = process.env.DB_CONNECTION_STRING;
   mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
-    useFindAndModify: true,
-    useCreateIndex: true,
+    // useFindAndModify: true,  // not supported
+    // useCreateIndex: true,  // not supported
   });
 
   mongoose.connection.once('open', async () => {
