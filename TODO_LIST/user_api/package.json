@@ -20,7 +20,9 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.6.5",
-    "pine": "^1.1.1"
+    "pine": "^1.1.1",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
     "eslint": "^8.25.0",

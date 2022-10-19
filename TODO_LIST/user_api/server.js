@@ -4,9 +4,16 @@ const bodyParser = require('body-parser');
 const logger = require('./logger/api.logger');
 const dotenv = require('dotenv');
 
+// import dependencies for API documentations
+const fs = require('fs')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8')
+
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { customCss }));
 
 // Handle different environments
 const environment = process.env.ENVIRONMENT;
