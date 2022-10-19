@@ -8,13 +8,13 @@ class TaskController {
   }
 
   async createTask(task) {
-    logger.info('Controller: creaye a task', task);
+    logger.info('Controller: create a task', task);
     return await taskService.createTask(task);
   }
 
-  async updateTask(task) {
+  async updateTask(id, task) {
     logger.info('Controller: update a task', task);
-    return await taskService.updateTask(task);
+    return await taskService.updateTask(id, task);
   }
 
   async deleteTask(taskId) {

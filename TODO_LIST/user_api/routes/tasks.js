@@ -15,9 +15,10 @@ app.post('/task', (req, res) => {
     .then(data => res.json(data))
 });
 
-app.put('/task', (req, res) => {
+app.put('/task/:id', (req, res) => {
   const { task } = req.body;
-  taskController.updateTask(task)
+  const { id } = req.params;
+  taskController.updateTask(id, task)
     .then(data => res.json(data))
 });
 

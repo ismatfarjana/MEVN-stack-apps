@@ -1,4 +1,5 @@
 // CRUD operations
+const crypto = require('crypto');
 const { connect } = require('../config/db.config');
 const { Task } = require('../model/task.model');
 const logger = require('../logger/api.logger');
@@ -13,24 +14,25 @@ class TaskRepository {
     console.log("tasks:", tasks)
     return tasks;
   }
-  async createTask(task) {
-    let data = {};
+  async createTask(task, err) {
+    task._id = crypto.randomBytes(32).toString('hex');
+    console.log("task in repository:", task)
     try {
-      data = await Task.create(task)
+      await Task.create(task);
     } catch {
       logger.error('Error:' + err)
     }
-    return data;
+    return task;
   }
-  async updateTask(task) {
-    let data = {};
+  async updateTask(id, task) {
     try {
-      data = await Task.updateOne(task)
+      await Task.updateOne({ _id: id }, { $set: task })
     } catch {
       logger.error('Error:' + err)
     }
-    return data;
+    return task;
   }
+
   async deleteTask(taskId) {
     let data = {};
     try {

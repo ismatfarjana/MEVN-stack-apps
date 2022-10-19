@@ -10,8 +10,8 @@ class TaskService {
   async createTask(task) {
     return await taskRepository.createTask(task);
   }
-  async updateTask(task) {
-    return await taskRepository.updateTask(task);
+  async updateTask(id, task) {
+    return await taskRepository.updateTask(id, task);
   }
   async deleteTask(taskId) {
     return await taskRepository.deleteTask(taskId);
